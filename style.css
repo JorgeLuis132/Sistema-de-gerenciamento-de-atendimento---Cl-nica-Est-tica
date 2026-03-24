@@ -123,3 +123,79 @@ body {
     transform: scale(1.05);
 }
 
+.content-section {
+    background-color: #c2e6a3;
+    width: 75%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.content-header h2 {
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.search-bar {
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    border-radius: 10px;
+    width: 350px;
+    border: 1px solid #999;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 5px;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.appointment-card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.user-icon img {
+    width: 100px;
+    height: 100px;
+    opacity: 0.6;
+    margin-right: 25px;
+}
+
+.info {
+    flex-grow: 1;
+    color: #444;
+    line-height: 1.6;
+}
+
+.info p {
+    font-size: 1.1rem;
+}
+
+.service {
+    font-size: 1rem;
+    color: #333;
+    width: 200px;
+    text-align: right;
+}
