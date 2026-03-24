@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; 
+}
+
+.main-container {
+    display: flex;
+    width: 900px;
+    height: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.sidebar {
+    background-color: #a8d68d; 
+    width: 25%;
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.sidebar h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.sidebar p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.sidebar-footer {
+    font-size: 0.8rem;
+}
+
+.login-section {
+    background-color: #c2e6a3; 
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    color: white;
+}
+
+.login-card h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.input-group input {
+    width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.forgot-password a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn {
+    width: 180px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    color: #333;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
