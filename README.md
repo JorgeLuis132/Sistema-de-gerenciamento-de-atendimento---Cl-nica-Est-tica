@@ -1,6 +1,6 @@
 Sistema de gerenciamento de clínica estética
 
--> Interface de Login.
+-> Interface de Login. 
 -> Acompanhamento de clientes e horários agendados.
 -> Controle de atendimentos.
 
@@ -12,12 +12,16 @@ CSS3
 JavaScript
 
 
-Imagem da interface de Login:
+Interface de Login:
 
 <img width="1115" height="628" alt="image" src="https://github.com/user-attachments/assets/272e3680-2b29-453d-b7c9-dd25336c1479" />
 
+Interface da lista de agendamentos: 
 
-Para rodar o projeto localmente
+<img width="1118" height="626" alt="image" src="https://github.com/user-attachments/assets/bf447bd5-b172-4458-8c53-6022b756858f" />
 
-1- Clone o repositório
+
+Para rodar o projeto localmente 
+
+1- Clone o repositório 
 2- Acesse o arquivo index.html
