@@ -13,8 +13,7 @@
             <div class="sidebar-content">
                 <h1>Clínica Estética</h1>
                 <p>Cuidando da sua aparência com cuidado e profissionalismo.</p>
-                <button type="button" class="btn-sair" onclick="window.location.href='index.html'">Sair</button>
-            </div>
+                <button type="button" class="btn-sair" onclick="fazerSair()">Sair</button>            </div>
             <footer class="sidebar-footer">Todos os direitos reservados.</footer>
         </aside>
 
@@ -37,72 +36,82 @@
         </main>
     </div> <script>
     </script>
-</body>
-
-    <script>
-        const container = document.getElementById('containerLista');
-
-function carregarAgendamentos() {
-    const dados = JSON.parse(localStorage.getItem('meusAgendamentos')) || [];
-    
-    if (dados.length === 0) {
-        container.innerHTML = "<p style='color:white; text-align:center;'>Nenhum agendamento encontrado.</p>";
-        return;
+<script>
+    if (localStorage.getItem('usuarioLogado') !== 'true') {
+        window.location.href = "index.html";
     }
 
-    container.innerHTML = ""; 
-    
-    dados.forEach((item, index) => {
-        container.innerHTML += `
-            <div class="appointment-card">
-                <div class="user-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="User">
-                </div>
-                <div class="info">
-                    <p><strong>Nome:</strong> <span>${item.nome}</span></p>
-                    <p><strong>Telefone:</strong> ${item.telefone}</p>
-                    <p><strong>Horário:</strong> ${item.hora} hrs</p>
-                    <p><strong>Data:</strong> ${item.data}</p>
-                </div>
-                <div class="service-area">
-                    <div class="service">${item.servico}</div>
-                    <button class="btn-excluir" onclick="excluirAgendamento(${index})">Excluir</button>
-                </div>
-            </div>
-        `;
-    });
-}
+    const container = document.getElementById('containerLista');
 
-function excluirAgendamento(index) {
-    if (confirm("Tem certeza que deseja excluir este agendamento?")) {
-        let dados = JSON.parse(localStorage.getItem('meusAgendamentos')) || [];
-        
-        dados.splice(index, 1);
-        
-        localStorage.setItem('meusAgendamentos', JSON.stringify(dados));
-        
-        carregarAgendamentos();
+    function fazerSair() {
+        localStorage.removeItem('usuarioLogado');
+        window.location.href = "index.html";
     }
-}
 
-const inputBusca = document.getElementById('inputBusca');
+    function carregarAgendamentos() {
+        const dados = JSON.parse(localStorage.getItem('meusAgendamentos')) || [];
+        if (dados.length === 0) {
+            container.innerHTML = "<p style='color:white; text-align:center;'>Nenhum agendamento encontrado.</p>";
+            return;
+        }
+        container.innerHTML = ""; 
+        dados.forEach((item, index) => {
+            container.innerHTML += `
+                <div class="appointment-card">
+                    <div class="user-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="User">
+                    </div>
+                    <div class="info">
+                        <p><strong>Nome:</strong> <span>${item.nome}</span></p>
+                        <p><strong>Telefone:</strong> ${item.telefone}</p>
+                        <p><strong>Horário:</strong> ${item.hora} hrs</p>
+                        <p><strong>Data:</strong> ${item.data}</p>
+                    </div>
+                    <div class="service-area">
+                        <div class="service">${item.servico}</div>
+                        <button class="btn-excluir" onclick="excluirAgendamento(${index})">Excluir</button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function excluirAgendamento(index) {
+        if (confirm("Tem certeza que deseja excluir este agendamento?")) {
+            let dados = JSON.parse(localStorage.getItem('meusAgendamentos')) || [];
+            dados.splice(index, 1);
+            localStorage.setItem('meusAgendamentos', JSON.stringify(dados));
+            carregarAgendamentos();
+        }
+    }
+
+    const inputBusca = document.getElementById('inputBusca');
+
 inputBusca.addEventListener('input', function() {
-    const termo = inputBusca.value.toLowerCase();
-    const cards = document.querySelectorAll('.appointment-card');
+    const termoBusca = inputBusca.value.toLowerCase(); 
+    const cards = document.querySelectorAll('.appointment-card'); 
 
     cards.forEach(card => {
         const nomeCliente = card.querySelector('.info p span').innerText.toLowerCase();
-        card.style.display = nomeCliente.includes(termo) ? "flex" : "none";
+
+        if (nomeCliente.includes(termoBusca)) {
+            card.style.display = "flex";
+        } else {
+            card.style.display = "none"; 
+        }
     });
 });
 
 function limparBusca() {
-    inputBusca.value = '';
     carregarAgendamentos();
+    inputBusca.value = '';
+    const cards = document.querySelectorAll('.appointment-card');
+    cards.forEach(card => {
+        card.style.display = "flex";
+    });
 }
-
-carregarAgendamentos();
-    </script>
+    carregarAgendamentos();
+</script>
 </body>
 </html>
 
