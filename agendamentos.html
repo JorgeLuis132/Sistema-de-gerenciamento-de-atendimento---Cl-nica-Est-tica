@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendamentos - Clínica Estética</title>
     <link rel="stylesheet" href="style.css">
-    </head>
+</head>
 <body>
     <div class="main-container">
         <aside class="sidebar">
@@ -20,55 +20,86 @@
 
         <main class="content-section">
             <header class="content-header">
-                <h2>Agendamentos:</h2>
+                <div class="header-titles">
+                    <h2>Agendamentos:</h2>
+                    <button type="button" class="btn-novo" onclick="window.location.href='cadastro.html'">+ Novo Agendamento</button>
+                </div>
+                
                 <div class="search-bar">
                     <span class="search-icon">🔍</span>
-                    <input type="text">
-                    <span class="close-icon">✕</span>
+                    <input type="text" id="inputBusca" placeholder="Buscar por nome...">
+                    <span class="close-icon" style="cursor:pointer" onclick="limparBusca()">✕</span>
                 </div>
             </header>
 
-            <div class="cards-container">
-                <div class="appointment-card">
-                    <div class="user-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="User">
-                    </div>
-                    <div class="info">
-                        <p><strong>Nome:</strong> Laura Santana</p>
-                        <p><strong>Telefone:</strong> +55 77 9999-9999</p>
-                        <p><strong>Horário agendado:</strong> 14:00 hrs</p>
-                        <p><strong>Data:</strong> 25/03/2026</p>
-                    </div>
-                    <div class="service">Limpeza de Pele</div>
-                </div>
-
-                <div class="appointment-card">
-                    <div class="user-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="User">
-                    </div>
-                    <div class="info">
-                        <p><strong>Nome:</strong> João Santos</p>
-                        <p><strong>Telefone:</strong> +55 77 9999-9999</p>
-                        <p><strong>Horário agendado:</strong> 16:00 hrs</p>
-                        <p><strong>Data:</strong> 25/03/2026</p>
-                    </div>
-                    <div class="service">Massagem Miofácial</div>
-                </div>
-
-                <div class="appointment-card">
-                    <div class="user-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="User">
-                    </div>
-                    <div class="info">
-                        <p><strong>Nome:</strong> Maria Silva</p>
-                        <p><strong>Telefone:</strong> +55 77 9999-9999</p>
-                        <p><strong>Horário agendado:</strong> 17:30 hrs</p>
-                        <p><strong>Data:</strong> 25/03/2026</p>
-                    </div>
-                    <div class="service">Extração de cravo</div>
-                </div>
-            </div>
+            <div id="containerLista" class="cards-container"></div>
         </main>
     </div>
+
+    <script>
+        const container = document.getElementById('containerLista');
+
+function carregarAgendamentos() {
+    const dados = JSON.parse(localStorage.getItem('meusAgendamentos')) || [];
+    
+    if (dados.length === 0) {
+        container.innerHTML = "<p style='color:white; text-align:center;'>Nenhum agendamento encontrado.</p>";
+        return;
+    }
+
+    container.innerHTML = ""; 
+    
+    dados.forEach((item, index) => {
+        container.innerHTML += `
+            <div class="appointment-card">
+                <div class="user-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="User">
+                </div>
+                <div class="info">
+                    <p><strong>Nome:</strong> <span>${item.nome}</span></p>
+                    <p><strong>Telefone:</strong> ${item.telefone}</p>
+                    <p><strong>Horário:</strong> ${item.hora} hrs</p>
+                    <p><strong>Data:</strong> ${item.data}</p>
+                </div>
+                <div class="service-area">
+                    <div class="service">${item.servico}</div>
+                    <button class="btn-excluir" onclick="excluirAgendamento(${index})">Excluir</button>
+                </div>
+            </div>
+        `;
+    });
+}
+
+function excluirAgendamento(index) {
+    if (confirm("Tem certeza que deseja excluir este agendamento?")) {
+        let dados = JSON.parse(localStorage.getItem('meusAgendamentos')) || [];
+        
+        dados.splice(index, 1);
+        
+        localStorage.setItem('meusAgendamentos', JSON.stringify(dados));
+        
+        carregarAgendamentos();
+    }
+}
+
+const inputBusca = document.getElementById('inputBusca');
+inputBusca.addEventListener('input', function() {
+    const termo = inputBusca.value.toLowerCase();
+    const cards = document.querySelectorAll('.appointment-card');
+
+    cards.forEach(card => {
+        const nomeCliente = card.querySelector('.info p span').innerText.toLowerCase();
+        card.style.display = nomeCliente.includes(termo) ? "flex" : "none";
+    });
+});
+
+function limparBusca() {
+    inputBusca.value = '';
+    carregarAgendamentos();
+}
+
+carregarAgendamentos();
+    </script>
 </body>
 </html>
+

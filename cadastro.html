@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Clínica Estética</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h1>Clínica Estética</h1>
+                <p>Cadastre novos agendamentos com facilidade.</p>
+            </div>
+            <footer class="sidebar-footer">Todos os direitos reservados.</footer>
+        </aside>
+
+        <main class="content-section">
+            <div class="login-card"> <h2>NOVO AGENDAMENTO</h2>
+                <form id="formCadastro">
+                    <div class="input-group">
+                        <label>Nome:</label>
+                        <input type="text" id="nomeCliente" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Telefone:</label>
+                        <input type="text" id="telCliente" placeholder="+55 00 00000-0000" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Serviço:</label>
+                        <input type="text" id="servicoCliente" placeholder="Ex: Limpeza de Pele" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Data:</label>
+                        <input type="date" id="dataCliente" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Hora:</label>
+                        <input type="time" id="horaCliente" required>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn">Salvar</button>
+                        <button type="button" class="btn" onclick="window.location.href='agendamentos.html'">Voltar</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="realizar-cadastro.js"></script>
+</body>
+</html>
