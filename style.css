@@ -15,14 +15,27 @@ body {
 
 .main-container {
     display: flex;
-    width: 900px;
-    height: 500px;
+    width: 1000px; 
+    height: 600px; 
+    background-color: white; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden; 
+    border-radius: 10px;
+}
+
+.content-section {
+    background-color: #c2e6a3;
+    flex: 1; 
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
 }
 
 .sidebar {
-    background-color: #a8d68d; 
-    width: 25%;
+    background-color: #a8d68d;
+    width: 250px;
+    min-width: 250px;
     color: white;
     padding: 40px 20px;
     display: flex;
@@ -245,4 +258,38 @@ body {
 .btn-excluir:hover {
     background-color: #cc0000;
     transform: scale(1.05);
+}
+
+.btn-sair {
+    margin-top: 30px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.btn-sair:hover {
+    background-color: #cc0000;
+    transform: scale(1.02);
+}
+
+.btn-voltar {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    background: white;
+    color: #a8d68d;
 }

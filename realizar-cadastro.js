@@ -18,3 +18,4 @@ document.getElementById('formCadastro').addEventListener('submit', function(e) {
     alert('Agendamento salvo com sucesso!');
     window.location.href = 'agendamentos.html'; 
 });
+

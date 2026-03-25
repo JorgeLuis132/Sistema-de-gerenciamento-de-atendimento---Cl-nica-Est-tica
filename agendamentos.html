@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <body>
     <div class="main-container">
         <aside class="sidebar">
             <div class="sidebar-content">
                 <h1>Clínica Estética</h1>
                 <p>Cuidando da sua aparência com cuidado e profissionalismo.</p>
+                <button type="button" class="btn-sair" onclick="window.location.href='index.html'">Sair</button>
             </div>
-            <footer class="sidebar-footer">
-                Todos os direitos reservados.
-            </footer>
+            <footer class="sidebar-footer">Todos os direitos reservados.</footer>
         </aside>
 
         <main class="content-section">
@@ -28,13 +28,16 @@
                 <div class="search-bar">
                     <span class="search-icon">🔍</span>
                     <input type="text" id="inputBusca" placeholder="Buscar por nome...">
-                    <span class="close-icon" style="cursor:pointer" onclick="limparBusca()">✕</span>
+                    <span class="close-icon" onclick="limparBusca()">✕</span>
                 </div>
             </header>
 
-            <div id="containerLista" class="cards-container"></div>
+            <div id="containerLista" class="cards-container">
+                </div>
         </main>
-    </div>
+    </div> <script>
+    </script>
+</body>
 
     <script>
         const container = document.getElementById('containerLista');
