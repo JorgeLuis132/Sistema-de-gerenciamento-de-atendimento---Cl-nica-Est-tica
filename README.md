@@ -20,8 +20,12 @@ Interface da lista de agendamentos:
 
 <img width="1118" height="626" alt="image" src="https://github.com/user-attachments/assets/bf447bd5-b172-4458-8c53-6022b756858f" />
 
+Interface da página de cadastro:
+
+<img width="1244" height="732" alt="image" src="https://github.com/user-attachments/assets/48b34b75-d996-45e3-9b23-50481a492f4b" />
 
 Para rodar o projeto localmente 
 
 1- Clone o repositório 
+
 2- Acesse o arquivo index.html
