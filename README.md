@@ -29,3 +29,7 @@ Para rodar o projeto localmente
 1- Clone o repositório 
 
 2- Acesse o arquivo index.html
+
+3- Utilize os dados de login 
+  E-mail: admin@clinica.com
+  Senha: admin
