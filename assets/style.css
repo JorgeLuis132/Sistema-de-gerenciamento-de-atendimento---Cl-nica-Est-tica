@@ -58,6 +58,12 @@ body {
     font-size: 0.8rem;
 }
 
+.sidebar-title {
+    font-size: 1.3rem;
+    margin: 20px 0 10px 0;
+    letter-spacing: 1px;
+}
+
 .login-section {
     background-color: #c2e6a3; 
     width: 75%;
@@ -282,14 +288,58 @@ body {
     background: transparent;
     border: 1px solid white;
     color: white;
-    padding: 5px 15px;
+    padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 0.9rem;
     transition: 0.3s;
+    align-self: center;
 }
 
 .btn-voltar:hover {
     background: white;
     color: #a8d68d;
+}
+
+/* Estilos para página de recuperação de senha */
+.recovery-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    color: white;
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    background-color: #888;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #666;
+    transform: scale(1.05);
+}
+
+.mensagem-recuperacao {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    text-align: center;
+    line-height: 1.5;
+    color: white;
+}
+
+.mensagem-recuperacao.sucesso {
+    background-color: #4caf50;
+    border: 1px solid #45a049;
+}
+
+.mensagem-recuperacao.erro {
+    background-color: #f44336;
+    border: 1px solid #da190b;
+}
+
+.mensagem-recuperacao.info {
+    background-color: #2196f3;
+    border: 1px solid #0b7dda;
 }

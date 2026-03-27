@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha - Clínica Estética</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <script src="../js/recuperacao-senha.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h1>Clínica Estética</h1>
+                <p>Recupere seu acesso com segurança.</p>
+            </div>
+            <footer class="sidebar-footer">
+                Todos os direitos reservados.
+            </footer>
+        </aside>
+
+        <main class="login-section">
+            <div class="login-card">
+                <h2>RECUPERAR SENHA</h2>
+                
+                <p class="recovery-subtitle">Digite seu e-mail para recuperar sua senha</p>
+                
+                <form id="formRecuperacao">
+                    <div class="input-group">
+                        <label for="emailRecuperacao">E-mail:</label>
+                        <input type="email" id="emailRecuperacao" name="emailRecuperacao" required>
+                    </div>
+
+                    <button type="button" class="btn" onclick="recuperarSenha()">Enviar Link</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='../index.html'">Voltar ao Login</button>
+                </form>
+
+                <div id="mensagemRecuperacao" class="mensagem-recuperacao" style="display:none;"></div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/recuperacao-senha.js"></script>
+</body>
+</html>

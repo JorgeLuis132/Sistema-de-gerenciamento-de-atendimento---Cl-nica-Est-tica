@@ -1,7 +1,8 @@
 Sistema de gerenciamento de clínica estética
 
 -> Interface de Login. 
--> Acompanhamento de clientes e horários agendados.
+-> Cadastro de cliente, agendamento de data, horário e procedimento.
+-> Acompanhamento de clientes e horários registrado na agenda.
 -> Controle de atendimentos.
 
 
